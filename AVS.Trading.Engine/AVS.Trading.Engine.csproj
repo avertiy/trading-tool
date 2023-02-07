@@ -1,0 +1,135 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{32B9A001-4C81-4424-909C-89C2A320ACF1}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>AVS.Trading.Engine</RootNamespace>
+    <AssemblyName>AVS.Trading.Engine</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <LangVersion>7.3</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Autofac, Version=4.7.1.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autofac.4.7.1\lib\net45\Autofac.dll</HintPath>
+    </Reference>
+    <Reference Include="AVS.CoreLib, Version=1.0.6921.23676, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\_references\AVS.CoreLib.dll</HintPath>
+    </Reference>
+    <Reference Include="AVS.CoreLib.Data, Version=1.0.6921.23676, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\_references\AVS.CoreLib.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.IO.Compression.FileSystem" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Emulator\ContextValidator.cs" />
+    <Compile Include="Emulator\DecisionHandlers\IDecisionHandlerService.cs" />
+    <Compile Include="Emulator\Emulator.cs" />
+    <Compile Include="Emulator\Conditions\ICondition.cs" />
+    <Compile Include="Emulator\DecisionHandlers\IDecisionHandler.cs" />
+    <Compile Include="Emulator\DecisionHandlers\IResult.cs" />
+    <Compile Include="Emulator\EmulatorDataProvider.cs" />
+    <Compile Include="Emulator\TradingEngine.cs" />
+    <Compile Include="Emulator\IAlgorithmFactory.cs" />
+    <Compile Include="Emulator\Services\ITradeSessionService.cs" />
+    <Compile Include="Emulator\Services\IPriceService.cs" />
+    <Compile Include="Models\PriceRangeSet.cs" />
+    <Compile Include="Emulator\DecisionStrategies\IDecisionStrategy.cs" />
+    <Compile Include="Emulator\TradeIntention.cs" />
+    <Compile Include="Models\Position.cs" />
+    <Compile Include="Models\ProfitLossStruct.cs" />
+    <Compile Include="Models\TradingRange.cs" />
+    <Compile Include="SomeIdeas.cs" />
+    <Compile Include="Emulator\Context\IContextBuilder.cs" />
+    <Compile Include="Emulator\Context\IMarketConditions.cs" />
+    <Compile Include="Emulator\Algorithms\IAlgorithm.cs" />
+    <Compile Include="Emulator\Context\AlgorithmContext.cs" />
+    <Compile Include="Emulator\Context\ContextSettings.cs" />
+    <Compile Include="Emulator\Decisions\IDecision.cs" />
+    <Compile Include="Infrastructure\DependencyRegistrar.cs" />
+    <Compile Include="Models\TradeSessionModel.cs" />
+    <Compile Include="Models\PositionMap.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Emulator\Exceptions.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AVS.Trading.Core\AVS.Trading.Core.csproj">
+      <Project>{161D37DA-4275-4C90-838A-10F7162E53A8}</Project>
+      <Name>AVS.Trading.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AVS.Trading.Data\AVS.Trading.Data.csproj">
+      <Project>{9193859C-CEF5-4945-B519-67A22952E50F}</Project>
+      <Name>AVS.Trading.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AVS.Trading.Framework\AVS.Trading.Framework.csproj">
+      <Project>{570C9F4D-7379-4DD0-B3C8-53E0D42A421A}</Project>
+      <Name>AVS.Trading.Framework</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Emulator\ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

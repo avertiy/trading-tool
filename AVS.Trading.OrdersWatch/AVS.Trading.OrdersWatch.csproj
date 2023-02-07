@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{69B88AAC-48E2-4128-8339-5D030A9EC207}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>AVS.Trading.OrdersWatch</RootNamespace>
+    <AssemblyName>AVS.Trading.OrdersWatch</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <LangVersion>7.3</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Autofac, Version=4.9.4.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autofac.4.9.4\lib\net45\Autofac.dll</HintPath>
+    </Reference>
+    <Reference Include="AVS.CoreLib">
+      <HintPath>..\_references\AVS.CoreLib.dll</HintPath>
+    </Reference>
+    <Reference Include="AVS.CoreLib.ConsoleTools">
+      <HintPath>..\_references\AVS.CoreLib.ConsoleTools.dll</HintPath>
+    </Reference>
+    <Reference Include="AVS.CoreLib.Data, Version=1.0.7080.22972, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\_references\AVS.CoreLib.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Dawn.Guard, Version=1.8.0.0, Culture=neutral, PublicKeyToken=234740ae15f786ce, processorArchitecture=MSIL">
+      <HintPath>..\packages\Dawn.Guard.1.8.0\lib\netstandard2.0\Dawn.Guard.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Infrastructure\CodeFirstInstallationService.cs" />
+    <Compile Include="Infrastructure\DependencyRegistrar.cs" />
+    <Compile Include="Infrastructure\Logger.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Tasks\TradingTools\LoadMyOrdersTask.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="..\_configs\AVS.Trading.OrdersWatch\AppConfig.config">
+      <Link>AppConfig.config</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AVS.PoloniexApi\AVS.PoloniexApi.csproj">
+      <Project>{BC5546FA-4F27-4A57-ABE0-2691D1E8B51C}</Project>
+      <Name>AVS.PoloniexApi</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AVS.Trading.Core\AVS.Trading.Core.csproj">
+      <Project>{161D37DA-4275-4C90-838A-10F7162E53A8}</Project>
+      <Name>AVS.Trading.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AVS.Trading.Data\AVS.Trading.Data.csproj">
+      <Project>{9193859C-CEF5-4945-B519-67A22952E50F}</Project>
+      <Name>AVS.Trading.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AVS.Trading.Framework\AVS.Trading.Framework.csproj">
+      <Project>{570C9F4D-7379-4DD0-B3C8-53E0D42A421A}</Project>
+      <Name>AVS.Trading.Framework</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

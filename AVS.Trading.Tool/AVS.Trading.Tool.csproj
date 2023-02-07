@@ -1,0 +1,487 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{B1957B0F-A5D3-4B48-826E-42C346E6B44F}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>AVS.Trading.Tool</RootNamespace>
+    <AssemblyName>AVS.Trading.Tool</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Autofac, Version=4.9.4.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autofac.4.9.4\lib\net45\Autofac.dll</HintPath>
+    </Reference>
+    <Reference Include="AutoMapper, Version=8.0.0.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.8.0.0\lib\net461\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="AVS.CoreLib, Version=1.0.7717.29130, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\_references\AVS.CoreLib.dll</HintPath>
+    </Reference>
+    <Reference Include="AVS.CoreLib.Data, Version=1.0.7319.32175, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\_references\AVS.CoreLib.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="AVS.CoreLib.WinForms, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\_references\AVS.CoreLib.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="AVS.ProxyUtil, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\_references\AVS.ProxyUtil.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.IO.Compression.FileSystem" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Constants.cs" />
+    <Compile Include="Controls\Common\EventArgs.cs" />
+    <Compile Include="Controls\Common\NumControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\Common\NumControl.Designer.cs">
+      <DependentUpon>NumControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Common\LimitOrderControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\Common\LimitOrderControl.Designer.cs">
+      <DependentUpon>LimitOrderControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Common\SelectCurrencyControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\Common\SelectCurrencyControl.Designer.cs">
+      <DependentUpon>SelectCurrencyControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Common\SelectMarketPeriodControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\Common\SelectMarketPeriodControl.Designer.cs">
+      <DependentUpon>SelectMarketPeriodControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Common\TradeTotalsControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\Common\TradeTotalsControl.Designer.cs">
+      <DependentUpon>TradeTotalsControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\MarketTools\ChartDataControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\MarketTools\ChartDataControl.Designer.cs">
+      <DependentUpon>ChartDataControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\MarketTools\ModelFactories\TradeHistoryModelFactory.cs" />
+    <Compile Include="Controls\TradingTools\ChildControls\PostOrdersControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\TradingTools\ChildControls\PostOrdersControl.Designer.cs">
+      <DependentUpon>PostOrdersControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\TradingTools\ModelFactories\OpenOrdersModelFactory.cs" />
+    <Compile Include="Controls\WalletTools\Controllers\MyLoansController.cs" />
+    <Compile Include="Forms\Dialogs\SelectApiKeyDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Dialogs\SelectApiKeyDialog.Designer.cs">
+      <DependentUpon>SelectApiKeyDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\MarketTools\CandlesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\MarketTools\CandlesForm.Designer.cs">
+      <DependentUpon>CandlesForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Infrastructure\MapperConfiguration.cs" />
+    <Compile Include="Models\Market\TradeItemModel.cs" />
+    <Compile Include="Models\TradeSummary.cs" />
+    <Compile Include="Models\TradeTotals.cs" />
+    <Compile Include="Models\Trading\TradeItemModel.cs" />
+    <Compile Include="Controls\TradingTools\ModelFactories\TradeHistoryModelFactory.cs" />
+    <Compile Include="Models\Wallet\ActiveLoansSummary.cs" />
+    <Compile Include="Utils\PriceCellFormatter.cs" />
+    <Compile Include="Utils\Helper.cs" />
+    <Compile Include="Utils\TradeTotalsHelper.cs" />
+    <Compile Include="Controls\Extensions\DataGridViewExtensions.cs" />
+    <Compile Include="Controls\Common\SelectMarketControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\Common\SelectMarketControl.Designer.cs">
+      <DependentUpon>SelectMarketControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Common\SelectDateRangeControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\Common\SelectDateRangeControl.Designer.cs">
+      <DependentUpon>SelectDateRangeControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\TradingTools\ChildControls\TradeSummaryProfitLoss.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\TradingTools\ChildControls\TradeSummaryProfitLoss.Designer.cs">
+      <DependentUpon>TradeSummaryProfitLoss.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\TradingTools\ChildControls\TradeSummaryTabControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\TradingTools\ChildControls\TradeSummaryTabControl.Designer.cs">
+      <DependentUpon>TradeSummaryTabControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\WalletTools\ChildControls\ActiveLoansSummaryControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\WalletTools\ChildControls\ActiveLoansSummaryControl.Designer.cs">
+      <DependentUpon>ActiveLoansSummaryControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\WalletTools\MyActiveLoansControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\WalletTools\MyActiveLoansControl.Designer.cs">
+      <DependentUpon>MyActiveLoansControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\TradingTools\MyOrdersForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\TradingTools\MyOrdersForm.Designer.cs">
+      <DependentUpon>MyOrdersForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\WalletTools\MyLoansForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\WalletTools\MyLoansForm.Designer.cs">
+      <DependentUpon>MyLoansForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Utils\MyGridSelectionHelper.cs" />
+    <Compile Include="Controls\MarketTools\ChildControls\OrderBookSummary.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\MarketTools\ChildControls\OrderBookSummary.Designer.cs">
+      <DependentUpon>OrderBookSummary.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\MarketTools\LoadMarketDataControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\MarketTools\LoadMarketDataControl.Designer.cs">
+      <DependentUpon>LoadMarketDataControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\MarketTools\MarketOrderBook.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\MarketTools\MarketOrderBook.Designer.cs">
+      <DependentUpon>MarketOrderBook.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\MarketTools\ChildControls\MarketTickerControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\MarketTools\ChildControls\MarketTickerControl.Designer.cs">
+      <DependentUpon>MarketTickerControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\MarketTools\Controllers\MarketTickerController.cs" />
+    <Compile Include="Controls\MarketTools\MarketTradeHistoryControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\MarketTools\MarketTradeHistoryControl.Designer.cs">
+      <DependentUpon>MarketTradeHistoryControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\MarketTools\Controllers\MarketTradeHistoryController.cs" />
+    <Compile Include="Controls\MarketTools\Controllers\OrderBookController.cs" />
+    <Compile Include="Controls\Extensions\GridHighlighterExtensions.cs" />
+    <Compile Include="Controls\Extensions\FiltersExtensions.cs" />
+    <Compile Include="Controls\MyUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\TradingTools\ChildControls\MarketPriceControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\TradingTools\ChildControls\MarketPriceControl.Designer.cs">
+      <DependentUpon>MarketPriceControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\TradingTools\Controllers\MyOpenOrdersController.cs" />
+    <Compile Include="Controls\TradingTools\Controllers\MyTradeBalancesController.cs" />
+    <Compile Include="Controls\TradingTools\MyOpenOrdersControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\TradingTools\MyOpenOrdersControl.Designer.cs">
+      <DependentUpon>MyOpenOrdersControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\TradingTools\ChildControls\MyTradeBalancesControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\TradingTools\ChildControls\MyTradeBalancesControl.Designer.cs">
+      <DependentUpon>MyTradeBalancesControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Common\ITradeHistoryFilters.cs" />
+    <Compile Include="Controls\Common\TradeTotalsExControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\Common\TradeTotalsExControl.Designer.cs">
+      <DependentUpon>TradeTotalsExControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Common\BaseSummaryControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\IMainFormView.cs" />
+    <Compile Include="Forms\IFormView.cs" />
+    <Compile Include="Forms\MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\MainFormController.cs" />
+    <Compile Include="Forms\MarketTools\OrderBookForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\MarketTools\OrderBookForm.Designer.cs">
+      <DependentUpon>OrderBookForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\MarketTools\TradeHistoryForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\MarketTools\TradeHistoryForm.Designer.cs">
+      <DependentUpon>TradeHistoryForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\MyBaseForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Controls\TradingTools\Controllers\MyTradeHistoryController.cs" />
+    <Compile Include="Controls\TradingTools\MyTradeHistoryControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\TradingTools\MyTradeHistoryControl.Designer.cs">
+      <DependentUpon>MyTradeHistoryControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Common\TradeHistoryFiltersControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\Common\TradeHistoryFiltersControl.Designer.cs">
+      <DependentUpon>TradeHistoryFiltersControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\TradingTools\TradingToolsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\TradingTools\TradingToolsForm.Designer.cs">
+      <DependentUpon>TradingToolsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Infrastructure\DependencyRegistrar.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Content Include="..\_configs\AVS.Trading.Tool\AppConfig.config">
+      <Link>AppConfig.config</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Include="Resources\binance.ico" />
+    <None Include="Resources\Kuna.ico" />
+    <None Include="Resources\Poloniex icon 2.png" />
+    <None Include="Resources\poloniex_logo 32x32.ico" />
+    <None Include="Resources\exmo_logo_32x32.ico" />
+    <None Include="Resources\Icon.ico" />
+    <EmbeddedResource Include="Controls\Common\NumControl.resx">
+      <DependentUpon>NumControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\Common\LimitOrderControl.resx">
+      <DependentUpon>LimitOrderControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\Common\SelectCurrencyControl.resx">
+      <DependentUpon>SelectCurrencyControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\Common\SelectMarketPeriodControl.resx">
+      <DependentUpon>SelectMarketPeriodControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\Common\TradeTotalsControl.resx">
+      <DependentUpon>TradeTotalsControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\Common\SelectMarketControl.resx">
+      <DependentUpon>SelectMarketControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\Common\SelectDateRangeControl.resx">
+      <DependentUpon>SelectDateRangeControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\MarketTools\ChartDataControl.resx">
+      <DependentUpon>ChartDataControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\MarketTools\ChildControls\OrderBookSummary.resx">
+      <DependentUpon>OrderBookSummary.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\MarketTools\LoadMarketDataControl.resx">
+      <DependentUpon>LoadMarketDataControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\MarketTools\MarketOrderBook.resx">
+      <DependentUpon>MarketOrderBook.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\MarketTools\ChildControls\MarketTickerControl.resx">
+      <DependentUpon>MarketTickerControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\MarketTools\MarketTradeHistoryControl.resx">
+      <DependentUpon>MarketTradeHistoryControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\TradingTools\ChildControls\MarketPriceControl.resx">
+      <DependentUpon>MarketPriceControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\TradingTools\ChildControls\PostOrdersControl.resx">
+      <DependentUpon>PostOrdersControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\TradingTools\ChildControls\TradeSummaryProfitLoss.resx">
+      <DependentUpon>TradeSummaryProfitLoss.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\TradingTools\ChildControls\TradeSummaryTabControl.resx">
+      <DependentUpon>TradeSummaryTabControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\TradingTools\MyOpenOrdersControl.resx">
+      <DependentUpon>MyOpenOrdersControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\TradingTools\ChildControls\MyTradeBalancesControl.resx">
+      <DependentUpon>MyTradeBalancesControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\Common\TradeTotalsExControl.resx">
+      <DependentUpon>TradeTotalsExControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\TradingTools\MyTradeHistoryControl.resx">
+      <DependentUpon>MyTradeHistoryControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\Common\TradeHistoryFiltersControl.resx">
+      <DependentUpon>TradeHistoryFiltersControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\WalletTools\ChildControls\ActiveLoansSummaryControl.resx">
+      <DependentUpon>ActiveLoansSummaryControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\WalletTools\MyActiveLoansControl.resx">
+      <DependentUpon>MyActiveLoansControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Dialogs\SelectApiKeyDialog.resx">
+      <DependentUpon>SelectApiKeyDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\MarketTools\CandlesForm.resx">
+      <DependentUpon>CandlesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\TradingTools\TradingToolsForm.resx">
+      <DependentUpon>TradingToolsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\MarketTools\OrderBookForm.resx">
+      <DependentUpon>OrderBookForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\MarketTools\TradeHistoryForm.resx">
+      <DependentUpon>TradeHistoryForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\TradingTools\MyOrdersForm.resx">
+      <DependentUpon>MyOrdersForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\WalletTools\MyLoansForm.resx">
+      <DependentUpon>MyLoansForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Content Include="app.config" />
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AVS.PoloniexApi\AVS.PoloniexApi.csproj">
+      <Project>{BC5546FA-4F27-4A57-ABE0-2691D1E8B51C}</Project>
+      <Name>AVS.PoloniexApi</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AVS.Trading.Core\AVS.Trading.Core.csproj">
+      <Project>{161d37da-4275-4c90-838a-10f7162e53a8}</Project>
+      <Name>AVS.Trading.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AVS.Trading.Data\AVS.Trading.Data.csproj">
+      <Project>{9193859c-cef5-4945-b519-67a22952e50f}</Project>
+      <Name>AVS.Trading.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AVS.Trading.Framework\AVS.Trading.Framework.csproj">
+      <Project>{570C9F4D-7379-4DD0-B3C8-53E0D42A421A}</Project>
+      <Name>AVS.Trading.Framework</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Controls\Controllers\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

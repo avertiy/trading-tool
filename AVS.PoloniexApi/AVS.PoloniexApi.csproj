@@ -1,0 +1,149 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{BC5546FA-4F27-4A57-ABE0-2691D1E8B51C}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>AVS.PoloniexApi</RootNamespace>
+    <AssemblyName>AVS.PoloniexApi</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <LangVersion>7.3</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>
+    </DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <DocumentationFile>bin\Release\AVS.PoloniexApi.xml</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DocumentationFile>bin\Release\PoloniexApi.Net.xml</DocumentationFile>
+    <Optimize>true</Optimize>
+    <PlatformTarget>x64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Autofac, Version=4.9.4.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autofac.4.9.4\lib\net45\Autofac.dll</HintPath>
+    </Reference>
+    <Reference Include="AVS.CoreLib">
+      <HintPath>..\_references\AVS.CoreLib.dll</HintPath>
+    </Reference>
+    <Reference Include="AVS.ProxyUtil, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\_references\AVS.ProxyUtil.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Collections.Immutable, Version=1.1.36.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Collections.Immutable.1.1.36\lib\portable-net45+win8+wp8+wpa81\System.Collections.Immutable.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Core" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Web" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Infrastructure\DependencyRegistrar.cs" />
+    <Compile Include="LiveTools\PoloniexChannelClient.cs" />
+    <Compile Include="General\PoloniexConstants.cs" />
+    <Compile Include="LendingTools\LendingApi.cs" />
+    <Compile Include="LendingTools\Models\CreateLoanOfferPoloniexResponse.cs" />
+    <Compile Include="LiveTools\PriceAggregatedBook.cs" />
+    <Compile Include="MarketTools\PoloniexMarketApiAsync.cs" />
+    <Compile Include="PoloniexCommands\LendingToolsCommands.cs" />
+    <Compile Include="PoloniexCommands\PublicApiCommands.cs" />
+    <Compile Include="PoloniexCommands\TradingCommands.cs" />
+    <Compile Include="MarketTools\Models\PoloniexPublicOrderBook.cs" />
+    <Compile Include="PoloniexClient.cs" />
+    <Compile Include="General\TickerSymbol.cs" />
+    <Compile Include="MarketTools\Models\MarketData.cs" />
+    <Compile Include="MarketTools\Models\Candlestick.cs" />
+    <Compile Include="MarketTools\PoloniexMarketApi.cs" />
+    <Compile Include="MarketTools\Models\Trade.cs" />
+    <Compile Include="PoloniexCommands\WalletCommands.cs" />
+    <Compile Include="General\PoloniexPairProvider.cs" />
+    <Compile Include="Services\PoloniexSymbolService.cs" />
+    <Compile Include="TradingTools\MarginTradingApi.cs" />
+    <Compile Include="TradingTools\Models\AvailableAccountBalances.cs" />
+    <Compile Include="TradingTools\Models\MarginPosition.cs" />
+    <Compile Include="TradingTools\Models\LimitOrder.cs" />
+    <Compile Include="TradingTools\Models\PlaceOrderResult.cs" />
+    <Compile Include="TradingTools\Models\Trade.cs" />
+    <Compile Include="TradingTools\PoloniexTradingApiAsync.cs" />
+    <Compile Include="TradingTools\PoloniexTradingApi.cs" />
+    <Compile Include="WalletTools\Interfaces\Wallet.Interface.cs" />
+    <Compile Include="WalletTools\Models\PoloniexBalance.cs" />
+    <Compile Include="WalletTools\Models\DepositWithdrawalList.cs" />
+    <Compile Include="WalletTools\Interfaces\DepositWithdrawalList.Interface.cs" />
+    <Compile Include="WalletTools\Interfaces\GeneratedDepositAddress.Interface.cs" />
+    <Compile Include="WalletTools\Models\GeneratedDepositAddress.cs" />
+    <Compile Include="WalletTools\Models\Deposit.cs" />
+    <Compile Include="WalletTools\Interfaces\Deposit.Interface.cs" />
+    <Compile Include="WalletTools\Models\LoanOffer.cs" />
+    <Compile Include="WalletTools\Models\MarginAccountSummary.cs" />
+    <Compile Include="WalletTools\PoloniexWalletApi.cs" />
+    <Compile Include="WalletTools\WalletApiAsync.cs" />
+    <Compile Include="WalletTools\Models\Withdrawal.cs" />
+    <Compile Include="WalletTools\Interfaces\Withdrawal.Interface.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AVS.Trading.Core\AVS.Trading.Core.csproj">
+      <Project>{161d37da-4275-4c90-838a-10f7162e53a8}</Project>
+      <Name>AVS.Trading.Core</Name>
+      <Private>True</Private>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

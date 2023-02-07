@@ -1,0 +1,155 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{161D37DA-4275-4C90-838A-10F7162E53A8}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>AVS.Trading.Core</RootNamespace>
+    <AssemblyName>AVS.Trading.Core</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <LangVersion>7.3</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AVS.CoreLib">
+      <HintPath>..\_references\AVS.CoreLib.dll</HintPath>
+    </Reference>
+    <Reference Include="AVS.ProxyUtil">
+      <HintPath>..\_references\AVS.ProxyUtil.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Threading.Tasks" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Domain\ApiKey.cs" />
+    <Compile Include="Constants.cs" />
+    <Compile Include="Domain\CurrencyPair.cs" />
+    <Compile Include="Domain\ExchangePair.cs" />
+    <Compile Include="Domain\PairString.cs" />
+    <Compile Include="Extensions\CandleExtensions.cs" />
+    <Compile Include="Formatters\BaseFormatter.cs" />
+    <Compile Include="Formatters\TradingFormatter.cs" />
+    <Compile Include="Helpers\NumericHelper.cs" />
+    <Compile Include="Helpers\DateTimeHelper.cs" />
+    <Compile Include="Formatters\BaseFormatInfo.cs" />
+    <Compile Include="Formatters\CurrencyPairFormatter.cs" />
+    <Compile Include="Formatters\DoubleFormatter.cs" />
+    <Compile Include="Formatters\OhlcFormatter.cs" />
+    <Compile Include="Interfaces\MarketTools\IMarketTradeItem.cs" />
+    <Compile Include="Models\BalanceSheet.cs" />
+    <Compile Include="Models\DateRange.cs" />
+    <Compile Include="Enums\AccountType.cs" />
+    <Compile Include="Enums\PositionType.cs" />
+    <Compile Include="Extensions\ExchangeClientExtensions.cs" />
+    <Compile Include="Extensions\EnumExtensions.cs" />
+    <Compile Include="Enums\MarketPeriod.cs" />
+    <Compile Include="Enums\OrderCondition.cs" />
+    <Compile Include="Enums\OrderState.cs" />
+    <Compile Include="Enums\OrderType.cs" />
+    <Compile Include="Enums\TradeCategory.cs" />
+    <Compile Include="Enums\TradeType.cs" />
+    <Compile Include="ExchangeClient.cs" />
+    <Compile Include="Extensions\DictionaryExtensions.cs" />
+    <Compile Include="Extensions\JsonExtensions.cs" />
+    <Compile Include="Extensions\ListExtensions.cs" />
+    <Compile Include="Extensions\MathExtensions.cs" />
+    <Compile Include="Extensions\NumberExtensions.cs" />
+    <Compile Include="Extensions\RankCalculationExtensions.cs" />
+    <Compile Include="Extensions\StringExtensions.cs" />
+    <Compile Include="Interfaces\BalanceInfo.cs" />
+    <Compile Include="Interfaces\IPairProvider.cs" />
+    <Compile Include="Interfaces\ITradeItem.cs" />
+    <Compile Include="Interfaces\LendingTools\IActiveLoan.cs" />
+    <Compile Include="Interfaces\LendingTools\ILendingApi.cs" />
+    <Compile Include="Models\PriceRange.cs" />
+    <Compile Include="ResponseModels\MarketTools\OrderBook.cs" />
+    <Compile Include="ResponseModels\MarketTools\OrderBookResponse.cs" />
+    <Compile Include="ResponseModels\MarketTools\TickerResponse.cs" />
+    <Compile Include="ResponseModels\SimpleResponse.cs" />
+    <Compile Include="ResponseModels\TradingTools\LoanOrders.cs" />
+    <Compile Include="ResponseModels\Order.cs" />
+    <Compile Include="Interfaces\TradingTools\IMarginPosition.cs" />
+    <Compile Include="Interfaces\TradingTools\IMarginTradingApi.cs" />
+    <Compile Include="Interfaces\TradingTools\ITradingApi.Interface.cs" />
+    <Compile Include="Interfaces\TradingTools\LimitOrder.Interface.cs" />
+    <Compile Include="Interfaces\TradingTools\Trade.Interface.cs" />
+    <Compile Include="Interfaces\WalletTools\Balance.Interface.cs" />
+    <Compile Include="Interfaces\TradingTools\IMarginAccountSummary.cs" />
+    <Compile Include="Interfaces\LendingTools\ILoanOffer.cs" />
+    <Compile Include="Interfaces\WalletTools\IWalletApi.cs" />
+    <Compile Include="ResponseModels\JsonConverters\BaseConverter.cs" />
+    <Compile Include="ResponseModels\MarketsResponse.cs" />
+    <Compile Include="ResponseModels\JsonConverters\MarketsResponseConverter.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Interfaces\MarketTools\ICandlestick.Interface.cs" />
+    <Compile Include="Interfaces\MarketTools\MarketData.Interface.cs" />
+    <Compile Include="Interfaces\MarketTools\MarketApi.Interface.cs" />
+    <Compile Include="Interfaces\MarketTools\Order.Interface.cs" />
+    <Compile Include="Interfaces\MarketTools\OrderBook.Interface.cs" />
+    <Compile Include="Interfaces\MarketTools\Trade.Interface.cs" />
+    <Compile Include="ResponseModels\PublicOrderBook.cs" />
+    <Compile Include="ResponseModels\TradingTools\IAvailableAccountBalances.cs" />
+    <Compile Include="Services\IMarginToolsService.cs" />
+    <Compile Include="Services\ITradingToolsService.cs" />
+    <Compile Include="Formatters\TradingFormatInfo.cs" />
+    <Compile Include="Services\SymbolService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="ResponseModels\WalletTools\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
